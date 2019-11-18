@@ -17,7 +17,7 @@ public class Coal : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if ()
+                //if ()
             }
         }
         else
