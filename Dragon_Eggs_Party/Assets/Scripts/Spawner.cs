@@ -51,9 +51,10 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public void CoalTaken()
+    public void CoalDropToThePoele()
     {
         _score++;
+        Debug.Log(_score);
     }
 
     private void OnDrawGizmos()

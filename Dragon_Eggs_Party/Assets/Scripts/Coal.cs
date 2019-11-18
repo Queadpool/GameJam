@@ -5,22 +5,18 @@ using UnityEngine;
 public class Coal : MonoBehaviour
 {
 
+    [SerializeField] private bool _coalTook = false;
     [SerializeField] private bool _coalTaken = false;
     [SerializeField] private float _lifeTime = 3.0f;
     public Spawner SpawnerManager;
 
     void Update()
     {
-        if (_coalTaken)
+        if (_coalTook)
         {
             transform.position = SpawnerManager._snapPoint.transform.position;
-
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                if ()
-            }
         }
-        else
+        else if(!_coalTaken)
         {
             _lifeTime -= Time.deltaTime;
             if (_lifeTime < 0.0f)
@@ -32,15 +28,26 @@ public class Coal : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if((other.tag == "Dragon" && Input.GetKeyDown(KeyCode.E)))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            _coalTaken = true;
-            SpawnerManager.CoalTaken();
-        }
-
-        if(other.tag == "Oeuf")
-        {
-
+            if (other.tag == "Oeuf")
+            {
+                Debug.Log("Oeuf");
+                SpawnerManager.CoalDropToThePoele();
+                Destroy(gameObject);
+            }
+            else if (other.tag == "Dragon")
+            {
+                if (_coalTook)
+                {
+                    _coalTook = false;
+                }
+                else
+                {
+                    _coalTook = true;
+                    _coalTaken = true;
+                }
+            }
         }
     }
 }
