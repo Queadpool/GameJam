@@ -15,6 +15,14 @@ public class Coal : MonoBehaviour
         if (_coalTook)
         {
             transform.position = SpawnerManager._snapPoint.transform.position;
+<<<<<<< HEAD
+=======
+
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                //if ()
+            }
+>>>>>>> origin/master
         }
         else if(!_coalTaken)
         {
