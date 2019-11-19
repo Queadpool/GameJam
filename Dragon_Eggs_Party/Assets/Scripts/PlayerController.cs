@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,18 +16,30 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CharacterController _characterCollider;
     [SerializeField] private CharacterController _controller;
+    [SerializeField] private ItemsManagement _itemsManagement;
+
+    [SerializeField] private int _playerID = 0;
+    [SerializeField] private Player _player; 
 
     // Use this for initialization
     void Start()
     {
         _characterCollider = gameObject.GetComponent<CharacterController>();
         _controller = GetComponent<CharacterController>();
+        _itemsManagement = gameObject.GetComponent<ItemsManagement>();
+
+        _player = ReInput.players.GetPlayer(_playerID);
     }
 
     // Update is called once per frame
     void Update()
     {
         ComputeMove();
+
+            if (_player.GetButtonDown("Drop"))
+        {
+            _itemsManagement.Drop();
+        }
 
         if (moveDirection != Vector3.zero)
         {
@@ -40,7 +53,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_controller.isGrounded)
         {
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
+            moveDirection = new Vector3(_player.GetAxis("Move Horizontal"), 0, _player.GetAxis("Move Vertical")).normalized;
             //moveDirection = _camera.transform.TransformDirection(moveDirection);
             moveDirection *= _speed;
         }
@@ -60,4 +73,23 @@ public class PlayerController : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(lookDirection);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, _rotSpeed * Time.deltaTime);
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.layer == 9)
+        {
+            if (_player.GetButtonDown("Pick Up"))
+            {
+                _itemsManagement.PickUp(other.gameObject);
+            }
+        }
+        else if (other.gameObject.layer == 10)
+        {
+            if (_player.GetButtonDown("Use"))
+            {
+                _itemsManagement.Use(other.gameObject.GetComponent<Egg>());
+            }
+        }
+    }
+
 }
