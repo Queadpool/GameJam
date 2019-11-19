@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,16 +16,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterController _characterCollider;
     [SerializeField] private CharacterController _controller;
 
-    [SerializeField] private int _playerID = 0;
-    [SerializeField] private Player _player; 
-
     // Use this for initialization
     void Start()
     {
         _characterCollider = gameObject.GetComponent<CharacterController>();
         _controller = GetComponent<CharacterController>();
-
-        _player = ReInput.players.GetPlayer(_playerID);
     }
 
     // Update is called once per frame
@@ -46,7 +40,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_controller.isGrounded)
         {
-            moveDirection = new Vector3(_player.GetAxis("Move Horizontal"), 0, _player.GetAxis("Move Vertical")).normalized;
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
             //moveDirection = _camera.transform.TransformDirection(moveDirection);
             moveDirection *= _speed;
         }
