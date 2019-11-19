@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _gravity = 20.0F;
     [SerializeField] private Vector3 moveDirection = Vector3.zero;
     [SerializeField] private float _rotSpeed = 5.0f;
-    [SerializeField] private float _rotAngle = 45.0f;
 
     [SerializeField] private CharacterController _characterCollider;
     [SerializeField] private CharacterController _controller;

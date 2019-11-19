@@ -284,7 +284,6 @@ MonoBehaviour:
   _gravity: 20
   moveDirection: {x: 0, y: 0, z: 0}
   _rotSpeed: 5
-  _rotAngle: 45
   _characterCollider: {fileID: 0}
   _controller: {fileID: 0}
 --- !u!4 &443195830
@@ -328,9 +327,10 @@ GameObject:
   - component: {fileID: 454669015}
   - component: {fileID: 454669014}
   - component: {fileID: 454669013}
+  - component: {fileID: 454669017}
   m_Layer: 0
-  m_Name: Poele
-  m_TagString: Oeuf
+  m_Name: Egg
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,6 +407,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &454669017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454669012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d44e3e74b119c40b66aadd322e4c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _overheat: 0
+  _temp: 10
+  _tempMin: 0
+  _tempMax: 100
+  _multiPalier1: 50
+  _multiPalier2: 80
+  _multi: 1
+  _score: 0
 --- !u!1 &465537066
 GameObject:
   m_ObjectHideFlags: 0
