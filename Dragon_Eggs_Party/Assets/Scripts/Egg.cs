@@ -11,15 +11,11 @@ public class Egg : MonoBehaviour
     [SerializeField] private float _multiPalier1 = 50.0f;
     [SerializeField] private float _multiPalier2 = 80.0f;
     [SerializeField] private int _multi = 1;
+    [SerializeField] private int _coalValue = 20;
+    [SerializeField] private int _iceValue = 20;
     [SerializeField] private float _score = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         Debug.Log("Score " + _score);
@@ -84,5 +80,20 @@ public class Egg : MonoBehaviour
         }
 
         _score += _multi * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Coal")
+        {
+            _temp += _coalValue;
+            Destroy(other.gameObject);
+        }
+
+        if (other.tag == "Ice")
+        {
+            _temp -= _iceValue;
+            Destroy(other.gameObject);
+        }
     }
 }
