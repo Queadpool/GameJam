@@ -6,6 +6,6 @@ using UnityEngine;
 public class DataBase : ScriptableObject
 {
     public Coal coal;
-    public Coal Ice;
-    public Coal Random;
+    public Item Ice;
+    public Item Random;
 }

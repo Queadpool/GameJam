@@ -40,7 +40,7 @@ public class Coal : MonoBehaviour
             if (other.tag == "Oeuf")
             {
                 Debug.Log("Oeuf");
-                SpawnerManager.CoalDropToThePoele();
+
                 Destroy(gameObject);
             }
             else if (other.tag == "Dragon")
