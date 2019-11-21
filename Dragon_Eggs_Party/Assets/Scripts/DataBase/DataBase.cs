@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "DWW/DataBase")]
 public class DataBase : ScriptableObject
 {
-    public Coal coal;
+    public Item coal;
     public Item Ice;
     public Item Random;
 }

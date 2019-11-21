@@ -5,11 +5,11 @@ using UnityEngine;
 public class ItemManagement : MonoBehaviour
 {
     // Start is called before the first frame update
-    private GameObject _item;
-    private bool _hasItem = false;
+    [SerializeField] private GameObject _item;
+    [SerializeField] private bool _hasItem = false;
     [SerializeField] private Transform _hold;
 
-    private GameObject _pickUp;
+    [SerializeField] private GameObject _pickUp;
 
     public void PickUp(GameObject item)
     {

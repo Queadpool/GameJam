@@ -6,6 +6,8 @@ public class Spawner : MonoBehaviour
 {
 
     [SerializeField] private float _spawnTimer = 0.0f;
+    [SerializeField] private float _lavaTimer = 0.0f;
+    [SerializeField] private bool _isLava = false;
     [SerializeField] public GameObject _snapPoint;
     [SerializeField] private GameObject _spawnCoal;
     [SerializeField] private int _stockCoal = 25;
@@ -18,16 +20,43 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int _timeSpawnIce1 = 10;
     [SerializeField] private int _timeSpawnIce2 = 10;
     [SerializeField] private int _timeSpawnIce3 = 10;
+    [SerializeField] private int _spawnLava;
+    [SerializeField] private GameObject _lava0;
+    [SerializeField] private GameObject _lava1;
+    [SerializeField] private GameObject _lava2;
+    [SerializeField] private GameObject _lava3;
 
     void Update()
     {
         _spawnTimer += Time.deltaTime;
+        _lavaTimer += Time.deltaTime;
 
         if (_spawnTimer > 5.0f)
         {
-            _spawnTimer = 0.0f;
             SpawnCoal();
             SpawnIce();
+        }
+
+        if (_lavaTimer > 10.0f)
+        {
+            if (!_isLava)
+            {
+                DoLava();
+            }
+            else
+            {
+                StopLava();
+            }
+        }
+        
+
+        if(_stockCoal > 0)
+        {
+            _spawnCoal.SetActive(true);
+        }
+        else
+        {
+            _spawnCoal.SetActive(false);
         }
 
         if (_spawnTimer > _timeSpawnIce0)
@@ -93,19 +122,11 @@ public class Spawner : MonoBehaviour
 
             _timeSpawnIce3 = 10;
         }
-
-        if(_stockCoal > 0)
-        {
-            _spawnCoal.SetActive(true);
-        }
-        else
-        {
-            _spawnCoal.SetActive(false);
-        }
     }
 
     private void SpawnCoal()
     {
+        _spawnTimer = 0.0f;
         _addCoal = Random.Range(2, 5);
         _stockCoal += _addCoal;
     }
@@ -118,12 +139,53 @@ public class Spawner : MonoBehaviour
         _timeSpawnIce3 = Random.Range(1, 4);
     }
 
+    public void DoLava()
+    {
+        _lavaTimer = 0.0f;
+        _isLava = true;
+        _spawnLava = Random.Range(0, 4);
+
+        switch (_spawnLava)
+        {
+            case 0:
+                {
+                    _lava0.SetActive(true);
+                    break;
+                }
+            case 1:
+                {
+                    _lava1.SetActive(true);
+                    break;
+                }
+            case 2:
+                {
+                    _lava2.SetActive(true);
+                    break;
+                }
+            case 3:
+                {
+                    _lava3.SetActive(true);
+                    break;
+                }
+        }
+    }
+
+    public void StopLava()
+    {
+        _lavaTimer = 0.0f;
+        _isLava = false;
+        _lava0.SetActive(false);
+        _lava1.SetActive(false);
+        _lava2.SetActive(false);
+        _lava3.SetActive(false);
+    }
+
     public void TakeCoal()
     {
         _stockCoal--;
     }
 
-    private void OnDrawGizmos()
+        private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_spawnCoal.transform.position, 1.0f);

@@ -5,9 +5,6 @@ using Rewired;
 
 public class PlayerController : MonoBehaviour
 {
-
-    //[SerializeField] private Camera _camera;
-
     [SerializeField] private float _speed = 6.0F;
     [SerializeField] private float _gravity = 20.0F;
     [SerializeField] private Vector3 moveDirection = Vector3.zero;
@@ -16,11 +13,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterController _characterCollider;
     [SerializeField] private CharacterController _controller;
     [SerializeField] private ItemManagement _itemManagement;
+    [SerializeField] private Spawner _spawner;
 
     [SerializeField] private int _playerID = 0;
     [SerializeField] private Player _player;
 
-    // Use this for initialization
     void Start()
     {
         _characterCollider = gameObject.GetComponent<CharacterController>();
@@ -29,7 +26,6 @@ public class PlayerController : MonoBehaviour
         _player = ReInput.players.GetPlayer(_playerID);
     }
 
-    // Update is called once per frame
     void Update()
     {
         ComputeMove();
@@ -78,6 +74,10 @@ public class PlayerController : MonoBehaviour
             if (_player.GetButtonDown("Pick Up"))
             {
                 _itemManagement.PickUp(other.gameObject);
+                if (other.tag == "Coal")
+                {
+                    _spawner.TakeCoal();
+                }
             }
         }
     }

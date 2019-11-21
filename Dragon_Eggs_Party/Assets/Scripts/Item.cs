@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private bool _onSpawn = true;
+    [SerializeField] private bool _isPicked = false;
+    [SerializeField] private float _lifeTime = 20.0f;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (!_onSpawn)
+        {
+            if (!_isPicked)
+            {
+                _lifeTime -= Time.deltaTime;
+            }
+        }
+
+        if (_lifeTime <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
