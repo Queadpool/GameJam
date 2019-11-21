@@ -9,19 +9,15 @@ public class Spawner : MonoBehaviour
     [SerializeField] public GameObject _snapPoint;
     [SerializeField] private GameObject _spawnCoal;
     [SerializeField] private int _stockCoal = 25;
+    [SerializeField] private int _addCoal;
     [SerializeField] private GameObject _spawnIce0;
     [SerializeField] private GameObject _spawnIce1;
     [SerializeField] private GameObject _spawnIce2;
     [SerializeField] private GameObject _spawnIce3;
-    [SerializeField] private int _timeSpawnIce0;
-    [SerializeField] private int _timeSpawnIce1;
-    [SerializeField] private int _timeSpawnIce2;
-    [SerializeField] private int _timeSpawnIce3;
-
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int _timeSpawnIce0 = 10;
+    [SerializeField] private int _timeSpawnIce1 = 10;
+    [SerializeField] private int _timeSpawnIce2 = 10;
+    [SerializeField] private int _timeSpawnIce3 = 10;
 
     void Update()
     {
@@ -30,6 +26,7 @@ public class Spawner : MonoBehaviour
         if (_spawnTimer > 5.0f)
         {
             _spawnTimer = 0.0f;
+            SpawnCoal();
             SpawnIce();
         }
 
@@ -45,6 +42,8 @@ public class Spawner : MonoBehaviour
                 Item newIce = Instantiate(ice);
                 newIce.transform.position = _spawnIce0.transform.position;
             }
+
+            _timeSpawnIce0 = 10;
         }
 
         if (_spawnTimer > _timeSpawnIce1)
@@ -59,6 +58,8 @@ public class Spawner : MonoBehaviour
                 Item newIce = Instantiate(ice);
                 newIce.transform.position = _spawnIce1.transform.position;
             }
+
+            _timeSpawnIce1 = 10;
         }
 
         if (_spawnTimer > _timeSpawnIce2)
@@ -73,6 +74,8 @@ public class Spawner : MonoBehaviour
                 Item newIce = Instantiate(ice);
                 newIce.transform.position = _spawnIce2.transform.position;
             }
+
+            _timeSpawnIce2 = 10;
         }
 
         if (_spawnTimer > _timeSpawnIce3)
@@ -87,24 +90,24 @@ public class Spawner : MonoBehaviour
                 Item newIce = Instantiate(ice);
                 newIce.transform.position = _spawnIce3.transform.position;
             }
+
+            _timeSpawnIce3 = 10;
+        }
+
+        if(_stockCoal > 0)
+        {
+            _spawnCoal.SetActive(true);
+        }
+        else
+        {
+            _spawnCoal.SetActive(false);
         }
     }
 
     private void SpawnCoal()
     {
-        Coal coal = DataBaseManager.Instance.dataBase.coal;
-        if (coal == null)
-        {
-            Debug.LogError("Missing Coal Reference");
-        }
-        else
-        {
-            Coal newCoal = Instantiate(coal);
-
-            newCoal.transform.position = _spawnCoal.transform.position;
-
-            newCoal.SpawnerManager = this;
-        }
+        _addCoal = Random.Range(2, 5);
+        _stockCoal += _addCoal;
     }
 
     private void SpawnIce()
@@ -113,6 +116,11 @@ public class Spawner : MonoBehaviour
         _timeSpawnIce1 = Random.Range(1, 4);
         _timeSpawnIce2 = Random.Range(1, 4);
         _timeSpawnIce3 = Random.Range(1, 4);
+    }
+
+    public void TakeCoal()
+    {
+        _stockCoal--;
     }
 
     private void OnDrawGizmos()
