@@ -17,7 +17,6 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int _timeSpawnIce1;
     [SerializeField] private int _timeSpawnIce2;
     [SerializeField] private int _timeSpawnIce3;
-    [SerializeField] private int _score = 0;
 
     void Start()
     {
