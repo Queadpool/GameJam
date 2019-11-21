@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class PlayerController : MonoBehaviour
 {
@@ -14,12 +15,18 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CharacterController _characterCollider;
     [SerializeField] private CharacterController _controller;
+    [SerializeField] private ItemManagement _itemManagement;
+
+    [SerializeField] private int _playerID = 0;
+    [SerializeField] private Player _player;
 
     // Use this for initialization
     void Start()
     {
         _characterCollider = gameObject.GetComponent<CharacterController>();
         _controller = GetComponent<CharacterController>();
+        _itemManagement = GetComponent<ItemManagement>();
+        _player = ReInput.players.GetPlayer(_playerID);
     }
 
     // Update is called once per frame
@@ -32,6 +39,11 @@ public class PlayerController : MonoBehaviour
             Rotate();
         }
 
+        if (_player.GetButtonDown("Drop"))
+        {
+            _itemManagement.Drop();
+        }
+
         DoMove();
     }
 
@@ -39,8 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_controller.isGrounded)
         {
-            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
-            //moveDirection = _camera.transform.TransformDirection(moveDirection);
+            moveDirection = new Vector3(_player.GetAxis("Move Horizontal"), 0, _player.GetAxis("Move Vertical")).normalized;
             moveDirection *= _speed;
         }
     }
@@ -58,5 +69,16 @@ public class PlayerController : MonoBehaviour
 
         Quaternion rotation = Quaternion.LookRotation(lookDirection);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, _rotSpeed * Time.deltaTime);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.layer == 9)
+        {
+            if (_player.GetButtonDown("Pick Up"))
+            {
+                _itemManagement.PickUp(other.gameObject);
+            }
+        }
     }
 }
