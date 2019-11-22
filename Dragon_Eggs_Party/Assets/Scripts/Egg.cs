@@ -19,6 +19,7 @@ public class Egg : MonoBehaviour
     [SerializeField] private Renderer meshRenderer;
     [SerializeField] private Material instancedMaterial;
     [SerializeField] private GameObject heatEgg;
+    [SerializeField] private GameObject warning;
     [SerializeField] private Image tempBar;
 
     void Start()
@@ -78,24 +79,28 @@ public class Egg : MonoBehaviour
         {
             instancedMaterial.SetFloat("_Chauffe", 0.0f);
             heatEgg.SetActive(false);
+            warning.SetActive(false);
             _multi = 0;
         }
         else if (_temp <= _multiPalier1)
         {
             instancedMaterial.SetFloat("_Chauffe", 0.3f);
             heatEgg.SetActive(false);
+            warning.SetActive(false);
             _multi = 1;
         }
         else if (_temp <= _multiPalier2)
         {
             instancedMaterial.SetFloat("_Chauffe", 0.5f);
             heatEgg.SetActive(false);
+            warning.SetActive(false);
             _multi = 2;
         }
         else
         {
             instancedMaterial.SetFloat("_Chauffe", 1.0f);
             heatEgg.SetActive(true);
+            warning.SetActive(true);
             _multi = 4;
         }
 
