@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 
-public class Selection : MonoBehaviour
+public class PlayerSelection : MonoBehaviour
 {
     private GameObject[][] _dragons;
 
