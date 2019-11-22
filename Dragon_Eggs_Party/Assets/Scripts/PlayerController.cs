@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _playerID = 0;
     [SerializeField] private Player _player;
 
+
     void Start()
     {
         _characterCollider = gameObject.GetComponent<CharacterController>();
