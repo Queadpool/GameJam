@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.layer == 9)
         {
-            if (_player.GetButtonDown("Pick Up"))
+            if (_player.GetButtonDown("Pick Up") && other.tag != "Spawn")
             {
                 _itemManagement.PickUp(other.gameObject);
             }
