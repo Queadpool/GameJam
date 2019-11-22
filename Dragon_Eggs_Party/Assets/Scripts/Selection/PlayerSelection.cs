@@ -4,10 +4,7 @@ using UnityEngine;
 using Rewired;
 using UnityEngine.SceneManagement;
 
-<<<<<<< HEAD:Dragon_Eggs_Party/Assets/Scripts/Selection/PlayerSelection.cs
 
-=======
->>>>>>> feature/Intégration:Dragon_Eggs_Party/Assets/Scripts/Selection/Selection.cs
 public class PlayerSelection : MonoBehaviour
 {
     private GameObject[][] _dragons;
@@ -151,7 +148,7 @@ public class PlayerSelection : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "Selection")
             {
-                SceneManager.LoadScene("Scene Alex");
+                SceneManager.LoadScene("Scene_Finale");
             }
 
         }
