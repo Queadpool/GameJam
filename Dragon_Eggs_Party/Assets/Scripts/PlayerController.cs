@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private CharacterController _controller;
     [SerializeField] private ItemManagement _itemManagement;
     [SerializeField] private Spawner _spawner;
+    [SerializeField] private GameObject _snapPoint;
 
     [SerializeField] private int _playerID = 0;
     [SerializeField] private Player _player;
@@ -75,15 +76,6 @@ public class PlayerController : MonoBehaviour
             if (_player.GetButtonDown("Pick Up"))
             {
                 _itemManagement.PickUp(other.gameObject);
-                if (other.tag == "Coal")
-                {
-
-                }
-
-                if (other.tag == "Ice")
-                {
-
-                }
             }
 
             if (other.tag == "Spawn")
@@ -98,7 +90,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     Item newCoal = Instantiate(coal);
-                    newCoal.transform.position = transform.position;
+                    newCoal.transform.position = _snapPoint.transform.position;
                 }
             }
         }

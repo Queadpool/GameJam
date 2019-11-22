@@ -7,7 +7,7 @@ public class ItemManagement : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private GameObject _item;
     [SerializeField] private bool _hasItem = false;
-    [SerializeField] private Transform _hold;
+    [SerializeField] private Transform _snapPoint;
 
     [SerializeField] private GameObject _pickUp;
 
@@ -16,7 +16,7 @@ public class ItemManagement : MonoBehaviour
         if (!_hasItem)
         {
             _item = item;
-            _pickUp = Instantiate (_item, _hold.position, Quaternion.identity);
+            _pickUp = Instantiate (_item, _snapPoint.position, Quaternion.identity);
             _pickUp.transform.parent = this.transform;
             Destroy(item);
             _hasItem = true;
