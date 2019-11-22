@@ -1,0 +1,149 @@
+fileFormatVersion: 2
+guid: f91bf8660567c2c49bfec6d4a298a458
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Aile_Droite_low
+    100002: Aile_Gauche_low
+    100004: Bras_Droit_low
+    100006: Bras_Gauche_low
+    100008: Corps_low
+    100010: Crane2_low
+    100012: //RootNode
+    100014: Lunette_low
+    100016: Machoire2_low
+    100018: Pied_Droit_low
+    100020: Pied_Gauche_low
+    100022: Tete2_low
+    100024: Torse_low
+    400000: Aile_Droite_low
+    400002: Aile_Gauche_low
+    400004: Bras_Droit_low
+    400006: Bras_Gauche_low
+    400008: Corps_low
+    400010: Crane2_low
+    400012: //RootNode
+    400014: Lunette_low
+    400016: Machoire2_low
+    400018: Pied_Droit_low
+    400020: Pied_Gauche_low
+    400022: Tete2_low
+    400024: Torse_low
+    2100000: Tete2
+    2100002: Corps
+    2300000: Aile_Droite_low
+    2300002: Aile_Gauche_low
+    2300004: Bras_Droit_low
+    2300006: Bras_Gauche_low
+    2300008: Crane2_low
+    2300010: Lunette_low
+    2300012: Machoire2_low
+    2300014: Pied_Droit_low
+    2300016: Pied_Gauche_low
+    2300018: Torse_low
+    3300000: Aile_Droite_low
+    3300002: Aile_Gauche_low
+    3300004: Bras_Droit_low
+    3300006: Bras_Gauche_low
+    3300008: Crane2_low
+    3300010: Lunette_low
+    3300012: Machoire2_low
+    3300014: Pied_Droit_low
+    3300016: Pied_Gauche_low
+    3300018: Torse_low
+    4300000: Crane2_low
+    4300002: Lunette_low
+    4300004: Machoire2_low
+    4300006: Torse_low
+    4300008: Aile_Gauche_low
+    4300010: Aile_Droite_low
+    4300012: Bras_Gauche_low
+    4300014: Bras_Droit_low
+    4300016: Pied_Gauche_low
+    4300018: Pied_Droit_low
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
