@@ -103,11 +103,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (collision.gameObject.layer == 10)
+        if (hit.gameObject.layer == 10)
         {
             Debug.Log("Egg");
+            _itemManagement.Use(hit.gameObject);
         }
     }
 }
