@@ -41,8 +41,10 @@ public class PlayerSelection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _player = ReInput.players.GetPlayer(_playerID);
 
-        _modelCounter = _playerID;
+        //_modelCounter = _playerID;
+        //_colourCounter = _playerID;
         _dragons = new GameObject[4][];
         _dragonsList = new GameObject[4][];
 
@@ -57,7 +59,7 @@ public class PlayerSelection : MonoBehaviour
         _dragonsList[3] = _dragonsData._dragons4;
 
 
-        _player = ReInput.players.GetPlayer(_playerID);
+
 
         _choices = new GameObject[4];
 
@@ -79,7 +81,7 @@ public class PlayerSelection : MonoBehaviour
             go.SetActive(false);
         }
 
-        _dragons[_modelCounter][_colourCounter].SetActive(true);
+        _dragons[0][0].SetActive(true);
     }
 
     // Update is called once per frame
