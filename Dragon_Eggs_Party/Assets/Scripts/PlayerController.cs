@@ -91,6 +91,7 @@ public class PlayerController : MonoBehaviour
                 {
                     Item newCoal = Instantiate(coal);
                     newCoal.transform.position = _snapPoint.transform.position;
+                    newCoal.transform.parent = gameObject.transform;
                 }
             }
         }
