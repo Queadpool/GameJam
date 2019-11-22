@@ -77,7 +77,28 @@ public class PlayerController : MonoBehaviour
                 _itemManagement.PickUp(other.gameObject);
                 if (other.tag == "Coal")
                 {
-                    _spawner.TakeCoal();
+
+                }
+
+                if (other.tag == "Ice")
+                {
+
+                }
+            }
+
+            if (other.tag == "Spawn")
+            {
+                _spawner.TakeCoal();
+
+                Item coal = DataBaseManager.Instance.dataBase.Coal;
+                if (coal == null)
+                {
+                    Debug.LogError("Missing Coal Reference");
+                }
+                else
+                {
+                    Item newCoal = Instantiate(coal);
+                    newCoal.transform.position = transform.position;
                 }
             }
         }

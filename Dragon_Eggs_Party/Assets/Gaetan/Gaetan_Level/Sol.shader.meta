@@ -1,0 +1,11 @@
+fileFormatVersion: 2
+guid: 07204286318728c46871b02ba818645c
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _uv_sol_test2: {fileID: 2800000, guid: 9a36b3387b32b2e42a10db8fe5e4d4dc, type: 3}
+  - _test_smoothness: {fileID: 2800000, guid: 24b414c370c4f224c89aacc55c72f455, type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

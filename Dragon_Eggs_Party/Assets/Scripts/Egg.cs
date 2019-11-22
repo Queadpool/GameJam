@@ -15,11 +15,21 @@ public class Egg : MonoBehaviour
     [SerializeField] private int _iceValue = 20;
     [SerializeField] private float _score = 0.0f;
 
+    [SerializeField] private Renderer meshRenderer;
+    [SerializeField] private Material instancedMaterial;
+    [SerializeField] private GameObject heatEgg;
+
+    void Start()
+    {
+        meshRenderer = GetComponent<Renderer>();
+        instancedMaterial = meshRenderer.material;
+    }
+
 
     void Update()
     {
-        Debug.Log("Score " + _score);
-        
+        CalculTemp();
+
         if (!_overheat)
         {
             CalculScore();
@@ -60,25 +70,36 @@ public class Egg : MonoBehaviour
         }
     }
 
-    private void CalculScore()
+    private void CalculTemp()
     {
         if (_temp == _tempMin)
         {
+            instancedMaterial.SetFloat("_Chauffe", 0.0f);
+            heatEgg.SetActive(false);
             _multi = 0;
         }
         else if (_temp <= _multiPalier1)
         {
+            instancedMaterial.SetFloat("_Chauffe", 0.3f);
+            heatEgg.SetActive(false);
             _multi = 1;
         }
         else if (_temp <= _multiPalier2)
         {
+            instancedMaterial.SetFloat("_Chauffe", 0.5f);
+            heatEgg.SetActive(false);
             _multi = 2;
         }
         else
         {
+            instancedMaterial.SetFloat("_Chauffe", 1.0f);
+            heatEgg.SetActive(true);
             _multi = 4;
         }
+    }
 
+    private void CalculScore()
+    {
         _score += _multi * Time.deltaTime;
     }
 

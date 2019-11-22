@@ -6,16 +6,13 @@ public class Item : MonoBehaviour
 {
     [SerializeField] private bool _onSpawn = true;
     [SerializeField] private bool _isPicked = false;
-    [SerializeField] private float _lifeTime = 20.0f;
+    [SerializeField] private float _lifeTime = 5.0f;
 
     void Update()
     {
-        if (!_onSpawn)
+        if (!_isPicked)
         {
-            if (!_isPicked)
-            {
-                _lifeTime -= Time.deltaTime;
-            }
+            _lifeTime -= Time.deltaTime;
         }
 
         if (_lifeTime <= 0)

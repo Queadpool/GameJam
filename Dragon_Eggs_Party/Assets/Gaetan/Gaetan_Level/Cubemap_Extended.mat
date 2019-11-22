@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cubemap_Extended
+  m_Shader: {fileID: 4800000, guid: 3c6102405879b3642a2cd47fa3cd077a, type: 3}
+  m_ShaderKeywords: _ENABLEROTATION_ON
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Tex:
+        m_Texture: {fileID: 8900000, guid: 3d6e4007682dea84caa2796486519d99, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex1:
+        m_Texture: {fileID: 8900000, guid: b61a6d19362f9fa4496fe7cff13eb621, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _EnableAutoExposure: 0
+    - _EnableFog: 0
+    - _EnableRotation: 1
+    - _Exposure: 1
+    - _FogFill: 0.5
+    - _FogHeight: 0.254
+    - _FogSmoothness: 0.01
+    - _Rotation: 0
+    - _RotationSpeed: 1
+    - __dirty: 0
+    m_Colors:
+    - _Color0: {r: 1, g: 0.545337, b: 0, a: 1}
+    - _Tex_HDR: {r: 0, g: 0, b: 0, a: 0}
+    - _TintColor: {r: 0.36707902, g: 0.6010924, b: 0.6886792, a: 1}
+    - _TintColor1: {r: 0.46226418, g: 0.06323426, b: 0.06323426, a: 1}

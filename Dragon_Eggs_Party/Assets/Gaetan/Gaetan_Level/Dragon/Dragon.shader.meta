@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: bc1ec1f4eab92fb4da8b97d784bf89cc
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Dragon1_low_lambert1_Normal: {fileID: 2800000, guid: 9d7a885b8a59f4a4899f9a6b5cea875c,
+      type: 3}
+  - _Dragon1_low_lambert1_BaseColor: {fileID: 2800000, guid: 77dfe37456d36904baae7cf78c2e5204,
+      type: 3}
+  - _Dragon1_low_lambert1_Roughness: {fileID: 2800000, guid: 09e68383187a235469a22da1b54a02f7,
+      type: 3}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

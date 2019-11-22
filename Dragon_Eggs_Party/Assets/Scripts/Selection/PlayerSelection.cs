@@ -4,7 +4,10 @@ using UnityEngine;
 using Rewired;
 using UnityEngine.SceneManagement;
 
+<<<<<<< HEAD:Dragon_Eggs_Party/Assets/Scripts/Selection/PlayerSelection.cs
 
+=======
+>>>>>>> feature/Intégration:Dragon_Eggs_Party/Assets/Scripts/Selection/Selection.cs
 public class PlayerSelection : MonoBehaviour
 {
     private GameObject[][] _dragons;
