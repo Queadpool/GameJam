@@ -10,10 +10,10 @@ public class Item : MonoBehaviour
 
     void Update()
     {
-        if (!_isPicked)
+        /*if (!_isPicked)
         {
             _lifeTime -= Time.deltaTime;
-        }
+        }*/
 
         if (_lifeTime <= 0)
         {

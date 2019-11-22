@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Egg : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Egg : MonoBehaviour
     [SerializeField] private Renderer meshRenderer;
     [SerializeField] private Material instancedMaterial;
     [SerializeField] private GameObject heatEgg;
+    [SerializeField] private Image tempBar;
 
     void Start()
     {
@@ -96,6 +98,8 @@ public class Egg : MonoBehaviour
             heatEgg.SetActive(true);
             _multi = 4;
         }
+
+        tempBar.fillAmount = _temp / 100;
     }
 
     private void CalculScore()
