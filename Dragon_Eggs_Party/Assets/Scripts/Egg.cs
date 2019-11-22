@@ -112,18 +112,31 @@ public class Egg : MonoBehaviour
         _score += _multi * Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.tag == "Coal")
+    //    {
+    //        _temp += _coalValue;
+    //        Destroy(other.gameObject);
+    //    }
+
+    //    if (other.tag == "Ice")
+    //    {
+    //        _temp -= _iceValue;
+    //        Destroy(other.gameObject);
+    //    }
+    //}
+
+    public void HeatModifier(GameObject item)
     {
-        if (other.tag == "Coal")
+        if (item.tag == "Coal")
         {
             _temp += _coalValue;
-            Destroy(other.gameObject);
         }
 
-        if (other.tag == "Ice")
+        if (item.tag == "Ice")
         {
             _temp -= _iceValue;
-            Destroy(other.gameObject);
         }
     }
 }

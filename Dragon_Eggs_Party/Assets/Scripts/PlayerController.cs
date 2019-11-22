@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private int _playerID = 0;
     [SerializeField] private Player _player;
 
+    private bool _hasItem = false;
+
 
     void Start()
     {
@@ -74,8 +76,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.layer == 9)
         {
             if (_player.GetButtonDown("Pick Up") && other.tag != "Spawn")
-            {
-                _itemManagement.PickUp(other.gameObject);
+            {        
+                _itemManagement.PickUp(other.gameObject.GetComponent<Item>());
             }
 
             if (other.tag == "Spawn")
@@ -89,11 +91,23 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    Item newCoal = Instantiate(coal);
-                    newCoal.transform.position = _snapPoint.transform.position;
-                    newCoal.transform.parent = gameObject.transform;
+                    _itemManagement.PickUp(coal, false);
                 }
             }
+
+            if (other.gameObject.layer == 10)
+            {
+                Debug.Log("Egg");
+                _itemManagement.Use(other.gameObject);
+            }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == 10)
+        {
+            Debug.Log("Egg");
         }
     }
 }
