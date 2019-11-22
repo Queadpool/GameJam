@@ -30,8 +30,8 @@ public class ItemManagement : MonoBehaviour
         Instantiate(_pickUp, transform.position, Quaternion.identity);
         Destroy(_pickUp);
         _hasItem = false;
-    }
         }
+    }
 
 
     public void Use()

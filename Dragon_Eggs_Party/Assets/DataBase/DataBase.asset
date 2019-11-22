@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a7e74e68d7b35345bbdc1ff249edea4, type: 3}
   m_Name: DataBase
   m_EditorClassIdentifier: 
-  coal: {fileID: 114599787258880932, guid: 93bad2adb6ab07a4ab2120a4922cf56f, type: 3}
-  blabla: {fileID: 4553960868161368801, guid: bfb2f8b7faffdbe4bba68bb3880865ac, type: 3}
+  Coal: {fileID: 767741171423454017, guid: b3141568160369c45ac71cb90ecebbe7, type: 3}
+  Ice: {fileID: 8977639238200898048, guid: 352c8594138128b4ea2d533b4f226a30, type: 3}
+  Mystery_Box: {fileID: 8569826924443805449, guid: 268e1728704419e4e9e92b45df9dc937,
+    type: 3}
+  Coal_Special: {fileID: 488031946559903791, guid: e3da1fe7efe085a46aeb8a0643f35f09,
+    type: 3}

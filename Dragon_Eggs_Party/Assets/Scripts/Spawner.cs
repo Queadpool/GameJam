@@ -6,9 +6,6 @@ public class Spawner : MonoBehaviour
 {
 
     [SerializeField] private float _spawnTimer = 0.0f;
-    [SerializeField] private float _lavaTimer = 0.0f;
-    [SerializeField] private bool _isLava = false;
-    [SerializeField] public GameObject _snapPoint;
     [SerializeField] private GameObject _spawnCoal;
     [SerializeField] private int _stockCoal = 25;
     [SerializeField] private int _addCoal;
@@ -20,6 +17,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private int _timeSpawnIce1 = 10;
     [SerializeField] private int _timeSpawnIce2 = 10;
     [SerializeField] private int _timeSpawnIce3 = 10;
+    [SerializeField] private float _lavaTimer = 0.0f;
+    [SerializeField] private bool _isLava = false;
     [SerializeField] private int _spawnLava;
     [SerializeField] private GameObject _lava0;
     [SerializeField] private GameObject _lava1;
@@ -31,7 +30,7 @@ public class Spawner : MonoBehaviour
         _spawnTimer += Time.deltaTime;
         _lavaTimer += Time.deltaTime;
 
-        if (_spawnTimer > 5.0f)
+        if (_spawnTimer > 10.0f)
         {
             SpawnCoal();
             SpawnIce();
@@ -133,10 +132,10 @@ public class Spawner : MonoBehaviour
 
     private void SpawnIce()
     {
-        _timeSpawnIce0 = Random.Range(1, 4);
-        _timeSpawnIce1 = Random.Range(1, 4);
-        _timeSpawnIce2 = Random.Range(1, 4);
-        _timeSpawnIce3 = Random.Range(1, 4);
+        _timeSpawnIce0 = Random.Range(1, 6);
+        _timeSpawnIce1 = Random.Range(1, 6);
+        _timeSpawnIce2 = Random.Range(1, 6);
+        _timeSpawnIce3 = Random.Range(1, 6);
     }
 
     public void DoLava()
@@ -183,12 +182,5 @@ public class Spawner : MonoBehaviour
     public void TakeCoal()
     {
         _stockCoal--;
-    }
-
-        private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(_spawnCoal.transform.position, 1.0f);
-        Gizmos.DrawRay(_spawnCoal.transform.position, Vector3.up * 5);
     }
 }
