@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SkinUpdate : MonoBehaviour
 {
-    [SerializeField] private PlayerSelection _playerSelection;
+    [SerializeField] private PlayersManager _playersManager;
     [SerializeField] private int _playerID = 0;
     [SerializeField] private Dragons _dragonsList;
 
@@ -14,9 +14,13 @@ public class SkinUpdate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _playerSelection = FindObjectOfType<PlayerSelection>();
-        _skin = _playerSelection.GetSkin(_playerID);
-        _skin = Instantiate(_skin, transform.position, Quaternion.identity);
-        _skin.transform.parent = this.transform.parent;
+        _playersManager = FindObjectOfType<PlayersManager>();
+        _skin = _playersManager.GetSkin(_playerID);
+        if (_skin != null)
+        {
+            _skin = Instantiate(_skin, transform.position, Quaternion.identity);
+            _skin.transform.parent = this.transform.parent;
+        }
+
     }
 }

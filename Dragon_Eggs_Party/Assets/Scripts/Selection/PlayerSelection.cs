@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rewired;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class PlayerSelection : MonoBehaviour
 {
     private GameObject[][] _dragons;
+
+    [SerializeField] private Image _A;
+    [SerializeField] private Image _checked;
+    [SerializeField] PlayersManager _playersManager;
 
     [SerializeField] private Dragons _dragonsData;
     private GameObject[][] _dragonsList;
@@ -18,7 +23,6 @@ public class PlayerSelection : MonoBehaviour
     [SerializeField] private GameObject[] _dragons4;
 
     private GameObject[] _choices;
-    private int _choiceCounter = 0;
 
     [SerializeField] private int _playerID = 0;
     [SerializeField] private Player _player;
@@ -28,15 +32,12 @@ public class PlayerSelection : MonoBehaviour
     [SerializeField] private int _minColour = 0;
     [SerializeField] private int _maxColour = 0;
 
+    private bool _AFK = true;
+
     private int _modelCounter = 0;
     private int _colourCounter = 0;
 
     private bool _accepted = false;
-
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -81,79 +82,85 @@ public class PlayerSelection : MonoBehaviour
             go.SetActive(false);
         }
 
-        _dragons[0][0].SetActive(true);
+        //_dragons[0][0].SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!_accepted)
+        if (!_AFK)
         {
-            OffToggleRender(_modelCounter, _colourCounter);
+            if (!_accepted)
+            {
+                OffToggleRender(_modelCounter, _colourCounter);
         
-            if (_player.GetButtonDown("Previous Colour"))
-            {
-                if (_colourCounter == _minColour)
+                if (_player.GetButtonDown("Previous Colour"))
                 {
-                    _colourCounter = _maxColour;
+                    if (_colourCounter == _minColour)
+                    {
+                        _colourCounter = _maxColour;
+                    }
+                    else
+                    {
+                        _colourCounter--;
+                    }
                 }
-                else
+                else if (_player.GetButtonDown("Next Colour"))
                 {
-                    _colourCounter--;
+                    if (_colourCounter == _maxColour)
+                    {
+                        _colourCounter = _minColour;
+                    }
+                    else
+                    {
+                        _colourCounter++;
+                    }
                 }
-            }
-            else if (_player.GetButtonDown("Next Colour"))
-            {
-                if (_colourCounter == _maxColour)
-                {
-                    _colourCounter = _minColour;
-                }
-                else
-                {
-                    _colourCounter++;
-                }
-            }
 
 
-            if (_player.GetButtonDown("Previous Model"))
-            {
-                if (_modelCounter == _minModel)
+                if (_player.GetButtonDown("Previous Model"))
                 {
-                    _modelCounter = _maxModel;
+                    if (_modelCounter == _minModel)
+                    {
+                        _modelCounter = _maxModel;
+                    }
+                    else
+                    {
+                        _modelCounter--;
+                    }
                 }
-                else
+                else if (_player.GetButtonDown("Next Model"))
                 {
-                    _modelCounter--;
+                    if (_modelCounter == _maxModel)
+                    {
+                        _modelCounter = _minModel;
+                    }
+                    else
+                    {
+                        _modelCounter++;
+                    }
                 }
-            }
-            else if (_player.GetButtonDown("Next Model"))
-            {
-                if (_modelCounter == _maxModel)
-                {
-                    _modelCounter = _minModel;
-                }
-                else
-                {
-                    _modelCounter++;
-                }
-            }
-            OnToggleRender(_modelCounter, _colourCounter);
+                OnToggleRender(_modelCounter, _colourCounter);
 
+                if (_player.GetButtonDown("Accept"))
+                {
+                    ChoiceStorage();
+                    _accepted = true;
+                    _checked.enabled = true;
+                }
+            }
+        }
+        else if (_AFK)
+        {
             if (_player.GetButtonDown("Accept"))
             {
-                ChoiceStorage();
-                _accepted = true;
+                _A.enabled = false;
+                _AFK = false;
+                _playersManager.AddPlayer();
+                _dragons[0][0].SetActive(true);
             }
         }
 
-        if (_choiceCounter == 1)
-        {
-            if (SceneManager.GetActiveScene().name == "Selection")
-            {
-                SceneManager.LoadScene("Scene_Finale");
-            }
-
-        }
     }
 
     private void OffToggleRender(int modelCounter, int colourCounter)
@@ -168,8 +175,8 @@ public class PlayerSelection : MonoBehaviour
 
     private void ChoiceStorage()
     {
-        _choices[_playerID] = _dragonsList[_modelCounter][_colourCounter];
-        _choiceCounter++;
+        _playersManager.ChoicesStorage(_playerID, _dragonsList[_modelCounter][_colourCounter]);
+        _playersManager.AddAccept();
     }
 
     public GameObject GetSkin(int playerID)
