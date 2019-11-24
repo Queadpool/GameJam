@@ -5,16 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class GameManagement : MonoBehaviour
 {
-    [SerializeField] private float _timeGame = 300;
+    [SerializeField] private float _timeGame = 120;
+    [SerializeField] private GameObject text;
 
-    // Update is called once per frame
     void Update()
     {
         _timeGame -= Time.deltaTime;
 
         if (_timeGame <= 0)
         {
-            Time.timeScale = 0;
+            EndGame();
         }
+    }
+
+    private void EndGame()
+    {
+        Time.timeScale = 0;
+        text.SetActive(true);
     }
 }

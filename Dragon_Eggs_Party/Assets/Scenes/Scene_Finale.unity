@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.014099662, g: 0.11284182, b: 0.35092542, a: 1}
+  m_IndirectSpecularColor: {r: 0.3742435, g: 0.010139185, b: 0.0072765397, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -112,6 +112,40 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &72012674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72012675}
+  m_Layer: 0
+  m_Name: Eggs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72012675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72012674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 442.98816, y: 300.0551, z: -11.228462}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7979076546917209841}
+  - {fileID: 1407698550}
+  - {fileID: 352348376}
+  - {fileID: 1954544430}
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &99091283
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,8 +240,9 @@ RectTransform:
   - {fileID: 1123585725}
   - {fileID: 1976925729}
   - {fileID: 580795426}
+  - {fileID: 1762942500}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -499,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75a2af6ae561d441859701243e44236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSelection: {fileID: 0}
+  _playersManager: {fileID: 0}
   _playerID: 2
   _dragonsList: {fileID: 11400000, guid: af2cf2ebfd2d8154cb81cc24545c7bbd, type: 2}
 --- !u!1001 &219812573
@@ -557,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 5178132990263370628, guid: b3113306e347a354e93f16aebeaaa7dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5178132990263370628, guid: b3113306e347a354e93f16aebeaaa7dd,
         type: 3}
@@ -733,13 +768,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 352348375}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.07, y: -6.412, z: -35.297}
+  m_LocalPosition: {x: -423.91815, y: -306.4671, z: -24.068539}
   m_LocalScale: {x: 0.86, y: 0.86, z: 0.86}
   m_Children:
   - {fileID: 614875623}
   - {fileID: 1997162432}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 72012675}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &368284628
 GameObject:
@@ -805,7 +840,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &417197883
 GameObject:
@@ -968,41 +1003,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75a2af6ae561d441859701243e44236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSelection: {fileID: 0}
+  _playersManager: {fileID: 0}
   _playerID: 3
   _dragonsList: {fileID: 11400000, guid: af2cf2ebfd2d8154cb81cc24545c7bbd, type: 2}
---- !u!84 &521753893
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Directional Light : Shadow Data Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 32
-  m_Height: 1
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 11
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &580795425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,6 +1187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeGame: 300
+  text: {fileID: 1762942499}
 --- !u!4 &630885127
 Transform:
   m_ObjectHideFlags: 0
@@ -1196,7 +1200,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &711038800
 GameObject:
@@ -1387,7 +1391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75a2af6ae561d441859701243e44236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSelection: {fileID: 0}
+  _playersManager: {fileID: 0}
   _playerID: 0
   _dragonsList: {fileID: 11400000, guid: af2cf2ebfd2d8154cb81cc24545c7bbd, type: 2}
 --- !u!1 &907625222
@@ -1610,7 +1614,7 @@ PrefabInstance:
     - target: {fileID: 5178132990263370628, guid: b3113306e347a354e93f16aebeaaa7dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5178132990263370628, guid: b3113306e347a354e93f16aebeaaa7dd,
         type: 3}
@@ -1876,6 +1880,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5178132990855720015}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &1103607339
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Directional Light : Shadow Map Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 512
+  m_Height: 512
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 11
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1 &1123585724
 GameObject:
   m_ObjectHideFlags: 0
@@ -2191,13 +2227,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407698549}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.821, y: -6.412, z: -25.82}
+  m_LocalPosition: {x: -439.16714, y: -306.4671, z: -14.591537}
   m_LocalScale: {x: 0.86, y: 0.86, z: 0.86}
   m_Children:
   - {fileID: 1890751831}
   - {fileID: 1101487212}
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 72012675}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1411427181
 GameObject:
@@ -2245,38 +2281,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!84 &1476700498
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'Directional Light : Shadow Map Render Texture'
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_Width: 512
-  m_Height: 512
-  m_AntiAliasing: 1
-  m_DepthFormat: 0
-  m_ColorFormat: 11
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1 &1554742068
 GameObject:
   m_ObjectHideFlags: 0
@@ -2470,7 +2474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75a2af6ae561d441859701243e44236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSelection: {fileID: 0}
+  _playersManager: {fileID: 0}
   _playerID: 1
   _dragonsList: {fileID: 11400000, guid: af2cf2ebfd2d8154cb81cc24545c7bbd, type: 2}
 --- !u!1001 &1719066169
@@ -2533,7 +2537,7 @@ PrefabInstance:
     - target: {fileID: 5178132990263370628, guid: b3113306e347a354e93f16aebeaaa7dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5178132990263370628, guid: b3113306e347a354e93f16aebeaaa7dd,
         type: 3}
@@ -2608,6 +2612,115 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!84 &1747420117
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'Directional Light : Shadow Data Render Texture'
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 32
+  m_Height: 1
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 11
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
+--- !u!1 &1762942499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1762942500}
+  - component: {fileID: 1762942502}
+  - component: {fileID: 1762942501}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1762942500
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762942499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 99091287}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 248}
+  m_SizeDelta: {x: 1640, y: 1339.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1762942501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762942499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 126
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: SCORE
+--- !u!222 &1762942502
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762942499}
+  m_CullTransparentMesh: 0
 --- !u!1 &1794772615
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,13 +3014,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954544429}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.07, y: -6.412, z: -25.82}
+  m_LocalPosition: {x: -423.91815, y: -306.4671, z: -14.591537}
   m_LocalScale: {x: 0.86, y: 0.86, z: 0.86}
   m_Children:
   - {fileID: 1665083680}
   - {fileID: 310075434}
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 72012675}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1976925728
 GameObject:
@@ -7841,7 +7954,7 @@ Transform:
   - {fileID: 7979076546419001766}
   - {fileID: 7979076548073346237}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &245922285587110479
 Transform:
@@ -8055,6 +8168,11 @@ PrefabInstance:
       propertyPath: tempBar
       value: 
       objectReference: {fileID: 1931673210}
+    - target: {fileID: 6629007238748896146, guid: 73c10d5830987194ebab6e8764aa09af,
+        type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1762942501}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73c10d5830987194ebab6e8764aa09af, type: 3}
 --- !u!4 &739741229311817555
@@ -22824,11 +22942,13 @@ MonoBehaviour:
   _coalValue: 20
   _iceValue: 20
   _score: 0
+  _roundScore: 0
   meshRenderer: {fileID: 0}
   instancedMaterial: {fileID: 0}
   heatEgg: {fileID: 3780512453932378380}
   warning: {fileID: 417197883}
   tempBar: {fileID: 1554742070}
+  scoreText: {fileID: 0}
 --- !u!1 &4438145134137010825
 GameObject:
   m_ObjectHideFlags: 0
@@ -23038,11 +23158,13 @@ MonoBehaviour:
   _coalValue: 20
   _iceValue: 20
   _score: 0
+  _roundScore: 0
   meshRenderer: {fileID: 0}
   instancedMaterial: {fileID: 0}
   heatEgg: {fileID: 5728785034727456141}
   warning: {fileID: 1186006284}
   tempBar: {fileID: 1314103482}
+  scoreText: {fileID: 0}
 --- !u!33 &4982610878148995666
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -23136,7 +23258,7 @@ PrefabInstance:
     - target: {fileID: 5178132990263370628, guid: b3113306e347a354e93f16aebeaaa7dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5178132990263370628, guid: b3113306e347a354e93f16aebeaaa7dd,
         type: 3}
@@ -33673,13 +33795,13 @@ MonoBehaviour:
   overrideColor: 0
   overridingColor: {r: 0.999999, g: 0.12868091, b: 0.060484767, a: 1}
   useShadow: 1
-  shadowMapRenderTexture: {fileID: 1476700498}
+  shadowMapRenderTexture: {fileID: 1103607339}
   useCookie: 1
   cookieMapRenderTexture: {fileID: 0}
   enableOutOfPhaseColor: 0
   outOfPhaseColorStrength: 0.1
   outOfPhaseColor: {r: 0.0000010132779, g: 0.999999, b: 0.999999, a: 1}
-  shadowDataRenderTexture: {fileID: 521753893}
+  shadowDataRenderTexture: {fileID: 1747420117}
   customDistanceFalloffThreshold: 0.5
   customDistanceFalloffPower: 2
   customCookieDistanceFalloffStartThreshold: 0.1
@@ -35652,13 +35774,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7979076546917209842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.821, y: -6.412, z: -35.297}
+  m_LocalPosition: {x: -439.16714, y: -306.4671, z: -24.068539}
   m_LocalScale: {x: 0.86, y: 0.86, z: 0.86}
   m_Children:
   - {fileID: 7979076547742262414}
   - {fileID: 7979076546475621684}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 72012675}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7979076546917209842
 GameObject:
@@ -36384,7 +36506,7 @@ Transform:
   - {fileID: 7979076547091223749}
   - {fileID: 131652214}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7979076547414716975
 GameObject:
@@ -43084,11 +43206,13 @@ MonoBehaviour:
   _coalValue: 20
   _iceValue: 20
   _score: 0
+  _roundScore: 0
   meshRenderer: {fileID: 0}
   instancedMaterial: {fileID: 0}
   heatEgg: {fileID: 2655368156437780662}
   warning: {fileID: 923427473}
   tempBar: {fileID: 1794772617}
+  scoreText: {fileID: 0}
 --- !u!136 &8002016811672802007
 CapsuleCollider:
   m_ObjectHideFlags: 0

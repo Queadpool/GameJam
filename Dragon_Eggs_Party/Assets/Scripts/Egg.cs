@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.TextCore;
 
 public class Egg : MonoBehaviour
 {
@@ -15,12 +16,14 @@ public class Egg : MonoBehaviour
     [SerializeField] private int _coalValue = 20;
     [SerializeField] private int _iceValue = 20;
     [SerializeField] private float _score = 0.0f;
+    [SerializeField] private float _roundScore = 0.0f;
 
     [SerializeField] private Renderer meshRenderer;
     [SerializeField] private Material instancedMaterial;
     [SerializeField] private GameObject heatEgg;
     [SerializeField] private GameObject warning;
     [SerializeField] private Image tempBar;
+    [SerializeField] private Text scoreText;
 
     void Start()
     {
@@ -110,6 +113,8 @@ public class Egg : MonoBehaviour
     private void CalculScore()
     {
         _score += _multi * Time.deltaTime;
+        _roundScore = Mathf.Round(_score);
+        scoreText.text = "Score : " + _roundScore + " !";
     }
 
     //private void OnTriggerEnter(Collider other)

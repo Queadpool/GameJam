@@ -24,7 +24,7 @@ public class PlayersManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_acceptCounter >= 2 && _acceptCounter == _numberOfPlayers)
+        if (_acceptCounter >= 1 && _acceptCounter == _numberOfPlayers)
         {
             LoadFinalScene();
         }
